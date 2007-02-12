@@ -1,5 +1,5 @@
 Summary:	LibTomMath - routines for integer based number theoretic applications
-Summary(pl):	LibTomMath - procedury do zastosowaÒ teorii liczb z zakresu liczb ca≥kowitych
+Summary(pl.UTF-8):   LibTomMath - procedury do zastosowa≈Ñ teorii liczb z zakresu liczb ca≈Çkowitych
 Name:		libtommath
 Version:	0.39
 Release:	1
@@ -21,36 +21,36 @@ public key cryptography). LibTomMath is not a cryptographic toolkit
 itself but it can be used to write one (is used in LibTomCrypt for
 RSA, DH and ECC public key routines).
 
-%description -l pl
-LibTomMath zawiera wysoko zoptymalizowane i przeno∂ne procedury do
-wiÍkszo∂ci zastosowaÒ teorii liczb z zakresu liczb ca≥kowitych
-(w≥±cznie z kryptografi± klucza publicznego). LibTomMath jako taka
-nie jest zestawem procedur kryptograficznych, ale moøe byÊ uøyta do
-napisania takowego (jest uøywana w LibTomCrypt do procedur klucza
+%description -l pl.UTF-8
+LibTomMath zawiera wysoko zoptymalizowane i przeno≈õne procedury do
+wiƒôkszo≈õci zastosowa≈Ñ teorii liczb z zakresu liczb ca≈Çkowitych
+(w≈ÇƒÖcznie z kryptografiƒÖ klucza publicznego). LibTomMath jako taka
+nie jest zestawem procedur kryptograficznych, ale mo≈ºe byƒá u≈ºyta do
+napisania takowego (jest u≈ºywana w LibTomCrypt do procedur klucza
 publicznego RSA, DH i ECC).
 
 %package devel
 Summary:	Header files for LibTomMath library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki LibTomMath
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki LibTomMath
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for LibTomMath library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki LibTomMath.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki LibTomMath.
 
 %package static
 Summary:	Static LibTomMath library
-Summary(pl):	Statyczna biblioteka LibTomMath
+Summary(pl.UTF-8):   Statyczna biblioteka LibTomMath
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static LibTomMath library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka LibTomMath.
 
 %prep
