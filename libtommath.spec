@@ -1,5 +1,5 @@
 Summary:	LibTomMath - routines for integer based number theoretic applications
-Summary(pl.UTF-8):   LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
+Summary(pl.UTF-8):	LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
 Name:		libtommath
 Version:	0.39
 Release:	1
@@ -31,7 +31,7 @@ publicznego RSA, DH i ECC).
 
 %package devel
 Summary:	Header files for LibTomMath library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki LibTomMath
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki LibTomMath
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -43,7 +43,7 @@ Pliki nagłówkowe biblioteki LibTomMath.
 
 %package static
 Summary:	Static LibTomMath library
-Summary(pl.UTF-8):   Statyczna biblioteka LibTomMath
+Summary(pl.UTF-8):	Statyczna biblioteka LibTomMath
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
