@@ -2,7 +2,7 @@ Summary:	LibTomMath - routines for integer based number theoretic applications
 Summary(pl.UTF-8):	LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
 Name:		libtommath
 Version:	0.39
-Release:	1
+Release:	2
 License:	Public Domain
 Group:		Libraries
 Source0:	http://math.libtomcrypt.com/files/ltm-%{version}.tar.bz2
