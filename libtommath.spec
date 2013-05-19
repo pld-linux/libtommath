@@ -1,14 +1,14 @@
 Summary:	LibTomMath - routines for integer based number theoretic applications
 Summary(pl.UTF-8):	LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
 Name:		libtommath
-Version:	0.39
-Release:	2
+Version:	0.42.0
+Release:	1
 License:	Public Domain
 Group:		Libraries
-Source0:	http://math.libtomcrypt.com/files/ltm-%{version}.tar.bz2
-# Source0-md5:	5f3c9287a6d65e2c3f6d47ad60797aeb
-URL:		http://math.libtomcrypt.com/
-BuildRequires:	libtool
+Source0:	http://libtom.org/files/ltm-%{version}.tar.bz2
+# Source0-md5:	7380da904b020301be7045cb3a89039b
+URL:		http://libtom.org/?page=features&whatfile=ltm
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -81,15 +81,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE
+%doc LICENSE changes.txt
 %attr(755,root,root) %{_libdir}/libtommath.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libtommath.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc bn.pdf tommath.pdf
 %attr(755,root,root) %{_libdir}/libtommath.so
 %{_libdir}/libtommath.la
-%{_includedir}/*.h
+%{_includedir}/tommath*.h
 
 %files static
 %defattr(644,root,root,755)
