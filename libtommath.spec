@@ -1,15 +1,15 @@
 Summary:	LibTomMath - routines for integer based number theoretic applications
 Summary(pl.UTF-8):	LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
 Name:		libtommath
-Version:	0.42.0
-Release:	2
-License:	Public Domain
+Version:	1.0
+Release:	1
+License:	Public Domain or WTFPL v2
 Group:		Libraries
-Source0:	http://libtom.org/files/ltm-%{version}.tar.bz2
-# Source0-md5:	7380da904b020301be7045cb3a89039b
-URL:		http://libtom.org/?page=features&whatfile=ltm
+#Source0Download: https://github.com/libtom/libtommath/releases
+Source0:	https://github.com/libtom/libtommath/releases/download/v%{version}/ltm-%{version}.tar.xz
+# Source0-md5:	a95dc984d8409a6f355efb0831009a66
+URL:		http://www.libtom.org/LibTomMath/
 BuildRequires:	libtool >= 2:1.5
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		specflags	-fomit-frame-pointer
@@ -56,12 +56,12 @@ Statyczna biblioteka LibTomMath.
 %prep
 %setup -q
 
-sed -i -e 's/\<gcc\>/$(GCC)/' makefile.shared
-
 %build
+# IGNORE_SPEED avoids overriding rpmcflags
+CFLAGS="%{rpmcflags}" \
 %{__make} -f makefile.shared \
-	GCC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I. -Wall -W -Wshadow -Wsign-compare" \
+	CC="%{__cc}" \
+	IGNORE_SPEED=1 \
 	LIBPATH=%{_libdir}
 
 %install
@@ -69,9 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} -f makefile.shared install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	LIBPATH=%{_libdir} \
-	INSTALL_GROUP="`id -g`" \
-	INSTALL_USER="`id -u`"
+	LIBPATH=%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -81,9 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE changes.txt
+%doc LICENSE README.md changes.txt
 %attr(755,root,root) %{_libdir}/libtommath.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtommath.so.0
+%attr(755,root,root) %ghost %{_libdir}/libtommath.so.1
 
 %files devel
 %defattr(644,root,root,755)
