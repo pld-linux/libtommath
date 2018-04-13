@@ -1,0 +1,11 @@
+--- libtommath-1.0.1/makefile.shared.orig	2017-08-29 22:27:36.000000000 +0200
++++ libtommath-1.0.1/makefile.shared	2018-04-13 18:32:50.038012830 +0200
+@@ -64,7 +64,7 @@
+ 	install -d $(DESTDIR)$(INCPATH)
+ 	$(LT) --mode=install install -m 644 $(LIBNAME) $(DESTDIR)$(LIBPATH)/$(LIBNAME)
+ 	install -m 644 $(HEADERS_PUB) $(DESTDIR)$(INCPATH)
+-	sed -e 's,^prefix=.*,prefix=$(PREFIX),' -e 's,^Version:.*,Version: $(VERSION_PC),' libtommath.pc.in > libtommath.pc
++	sed -e 's,^prefix=.*,prefix=$(PREFIX),' -e 's,^libdir=.*,libdir=$(LIBPATH),' -e 's,^Version:.*,Version: $(VERSION_PC),' libtommath.pc.in > libtommath.pc
+ 	install -d $(DESTDIR)$(LIBPATH)/pkgconfig
+ 	install -m 644 libtommath.pc $(DESTDIR)$(LIBPATH)/pkgconfig/
+ 

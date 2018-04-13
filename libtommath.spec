@@ -1,14 +1,15 @@
 Summary:	LibTomMath - routines for integer based number theoretic applications
 Summary(pl.UTF-8):	LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
 Name:		libtommath
-Version:	1.0
+Version:	1.0.1
 Release:	1
 License:	Public Domain or WTFPL v2
 Group:		Libraries
 #Source0Download: https://github.com/libtom/libtommath/releases
 Source0:	https://github.com/libtom/libtommath/releases/download/v%{version}/ltm-%{version}.tar.xz
-# Source0-md5:	a95dc984d8409a6f355efb0831009a66
-URL:		http://www.libtom.org/LibTomMath/
+# Source0-md5:	72f4dd9dcde8338e5e3507f7bbea7582
+Patch0:		%{name}-pc.patch
+URL:		http://www.libtom.net/LibTomMath/
 BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,6 +56,7 @@ Statyczna biblioteka LibTomMath.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 # IGNORE_SPEED avoids overriding rpmcflags
@@ -69,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} -f makefile.shared install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	PREFIX=%{_prefix} \
 	LIBPATH=%{_libdir}
 
 %clean
@@ -85,10 +88,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc bn.pdf tommath.pdf
+%doc doc/{bn.pdf,poster.pdf,tommath.pdf}
 %attr(755,root,root) %{_libdir}/libtommath.so
 %{_libdir}/libtommath.la
 %{_includedir}/tommath*.h
+%{_pkgconfigdir}/libtommath.pc
 
 %files static
 %defattr(644,root,root,755)
