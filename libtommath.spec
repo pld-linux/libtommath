@@ -1,13 +1,13 @@
 Summary:	LibTomMath - routines for integer based number theoretic applications
 Summary(pl.UTF-8):	LibTomMath - procedury do zastosowań teorii liczb z zakresu liczb całkowitych
 Name:		libtommath
-Version:	1.2.0
-Release:	3
+Version:	1.3.0
+Release:	1
 License:	Public Domain or WTFPL v2
 Group:		Libraries
 #Source0Download: https://github.com/libtom/libtommath/releases
 Source0:	https://github.com/libtom/libtommath/releases/download/v%{version}/ltm-%{version}.tar.xz
-# Source0-md5:	159523e41d528ce72a0ce4ac3eabe274
+# Source0-md5:	59d7440e1f60719a1d3cc8c4f1df2d6b
 Patch0:		%{name}-pc.patch
 URL:		http://www.libtom.net/LibTomMath/
 BuildRequires:	libtool >= 2:1.5
@@ -74,6 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix} \
 	LIBPATH=%{_libdir}
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libtommath.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -90,7 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/bn.pdf
 %attr(755,root,root) %{_libdir}/libtommath.so
-%{_libdir}/libtommath.la
 %{_includedir}/tommath*.h
 %{_pkgconfigdir}/libtommath.pc
 
